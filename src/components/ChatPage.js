@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
-import VideoRecorder from './VideoRecorder';
 
-const ChatPage = () => {
+
+const ChatPage = (props) => {
   const [socket, setSocket] = useState(null);
   const [message, setMessage] = useState('');
   const [receivedMessage, setReceivedMessage] = useState('');
@@ -55,7 +55,16 @@ const ChatPage = () => {
     }
   };
   useEffect(() => {
-    const newSocket = io('http://localhost:5000'); // Replace with your server URL
+    const newSocket = io('http://localhost:5000',
+    {
+      // You can pass additional data in the query string
+      query: {
+        authToken: props.token,
+        // Other data you want to send for authentication or identification
+      }
+    }
+    
+    ); // Replace with your server URL
     setSocket(newSocket);
 
     // Clean up on unmount
@@ -105,20 +114,7 @@ const ChatPage = () => {
       </div>
     </div>
     
-    <div>
-            <h1>React Media Recorder</h1>
-            <div className="button-flex">
-                <button onClick={toggleRecordOption("video")}>
-                  Record Video
-                </button>
-                <button onClick={toggleRecordOption("audio")}>
-                  Record Audio
-                </button>
-            </div>
-            <div>
-                {recordOption === "video" ? <VideoRecorder /> : "Please select sosmething"}
-            </div>
-        </div>
+    
    </>
   );
 };
