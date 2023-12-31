@@ -12,7 +12,8 @@ function Video({clientMessage,setClientMessage,isOpen,setIsOpen,setScript,isList
   
   const [speechText,setSpeechText]=useState([]);
   const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
-
+  
+  
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then(stream => {

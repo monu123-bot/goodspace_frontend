@@ -33,6 +33,8 @@ function Main(props) {
        <div className="body">
            <Home/>
 
+
+         <div className='Auth'  >
            <GoogleOAuthProvider clientId="573232329729-b7cl896krcqalql9nvqkfg0cl5ekpn2u.apps.googleusercontent.com">
       
       <GoogleLogin
@@ -47,7 +49,9 @@ function Main(props) {
   />;
         
         
+
         </GoogleOAuthProvider>
+        </div>
        </div>
     </div>
     

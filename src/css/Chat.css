@@ -45,33 +45,21 @@
     float: left;
     clear: both;
     padding: 2%;
+    background-color: white;
 }
 .right{
     float: right;
     clear: both;
     padding: 2%;
-    
-    
-}
-.right p{
-    
     background-color: rgba(46, 157, 251, 1);
-
-    
-    
-    
-}
-.left p{
-    
-    background-color: white;
-    
     
     
 }
 
 
-.clientMessage p{
-    
+
+/* .clientMessage p{
+
     width: 100%;
     padding: 4%;
     font-size: 20px;
@@ -80,7 +68,7 @@
     border-radius: 5px 
     
     
-}
+} */
 .serverMessage p{
     font-size: 20px;
     font-weight: 500;
@@ -156,10 +144,17 @@
     width: 70%;
     height: 80%;
     padding: 2%;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 
 
+.messagediv{
+    width: fit-content;
+    max-width: 45%;
+    border-radius:20px ;
+    min-width: 20%;
+    text-align: center;
 
+}
 
 

@@ -1,7 +1,7 @@
 .videoComp{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 60%;
   height:40vh;
@@ -16,7 +16,7 @@
 .off-videocomp{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 40%;
   height:35vh;
@@ -105,7 +105,7 @@
   font-size: 16px;
 }  
 .mic.listening .microphone {
-  color: white;
+  color: rgb(255, 255, 255);
   border: 2px solid #189BFF;
   padding: 30px;
   background-color: #189BFF;

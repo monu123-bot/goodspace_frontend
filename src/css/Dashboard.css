@@ -1,17 +1,25 @@
 .Dashboard {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+   
     background-image: url('./dashboardBack.png');
-    background-size: 100%;
+   
     background-repeat: no-repeat;
     padding: 2%;
     box-sizing: border-box;
 
+    
+  
+  height:100vh;
+  background-position: center;
+  
+  background-size: cover;
+  position: relative;
+
 }
 .lower{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
 }
 .pausebtn{
     /* font-size: 80px; */

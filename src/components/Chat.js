@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { MdSend } from "react-icons/md";
 import { GrAttachment } from "react-icons/gr";
 import { BsChatLeftFill } from "react-icons/bs";
 import ChatBtnSvg from './svg/ChatBtnSvg';
-import axios from 'axios'
-
+import axios from 'axios';
+import Speech from 'react-speech';
+import ScrollToBottom from 'react-scroll-to-bottom';
 import '../css/Chat.css'
-function Chat({isOpen,setIsOpen,token}) {
-
-  const [chats,setChats] = useState([])
+function Chat({isOpen,setIsOpen,token,messagerecieve,messagesent,setScript,setSend}) {
+ 
+     
+    const [chatArray,setChatArray] = useState([])
+    const messageEndRef = useRef(null)
+  
   
 
   const fetchPrevChats = async () => {
@@ -28,7 +32,7 @@ function Chat({isOpen,setIsOpen,token}) {
       const response = await axios.get(apiUrl, axiosConfig);
       console.log('Response:', response.data);
       // Handle the response data here
-      setChats(response.data.chats)
+      setChatArray(response.data.chats)
     } catch (error) {
       console.error('Error:', error);
       // Handle errors here
@@ -38,6 +42,12 @@ function Chat({isOpen,setIsOpen,token}) {
   useEffect(()=>{
     fetchPrevChats()
   },[])
+
+  useEffect(()=>{
+    messageEndRef.current?.scrollIntoView()
+  },[messagerecieve,messagesent])
+
+
  
   
 
@@ -74,21 +84,23 @@ function Chat({isOpen,setIsOpen,token}) {
   return (
     <div className={(isOpen)?'chatSection ' : 'off-chatSection'}>
         <div className="chat">
-          <div className="upper">
 
+
+          <ScrollToBottom className="upper">
+         
             
             <div className="clientMessage">
                 {
                 
                 
-                chats.map((msg)=>{
+                chatArray.map((msg)=>{
 
                   
 
                   return (
                   
                   
-                  <div className={`${(msg.type) ? 'left' : 'right'} messagediv ` } > 
+                  <div className={`${(msg.type) ? 'right' : 'left'} messagediv ` } > 
                       
                       <p className='messagep'>{msg.message}</p>
 
@@ -99,10 +111,14 @@ function Chat({isOpen,setIsOpen,token}) {
                   
                   )
                 })}
+
+                
               
             </div>
+          
             
-          </div>
+          </ScrollToBottom>
+          
           {(isOpen) &&
           <div className='chatIcon' onClick={handleClick}>
               <BsChatLeftFill className="chatBtn" />
@@ -112,9 +128,9 @@ function Chat({isOpen,setIsOpen,token}) {
         {(!isOpen) &&
 
         <div className="textBox">
-            <input type='text' name='textBox'></input>
+            <input value={messagesent}  onChange={(e)=>{setScript(e.target.value)}} type='text' name='textBox'></input>
             <GrAttachment className='attachment'/>
-            <MdSend className='send'/>
+            <MdSend onClick={()=>{setSend(true)}} className='send'/>
         </div>
         
         }
