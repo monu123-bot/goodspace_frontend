@@ -41,4 +41,19 @@
     justify-content: center;
     align-items: center;
     height:35vh;
+    
+}
+.off-pauseIcon{
+    border: 2px solid gray;
+    border-radius: 10px;
+    background-color: transparent;
+    backdrop-filter: blur(55px);
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:35vh;
+    position: relative;
+    top: 28px;
+
 }

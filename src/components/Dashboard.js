@@ -134,7 +134,9 @@ function Dashboard(props) {
         {(!isOpen) ? (<Video clientMessage={clientMessage} setClientMessage={setClientMessage} isOpen={isOpen} setIsOpen={setIsOpen} script={script} setScript={setScript} />) :
 
           (<Chat isOpen={isOpen} setIsOpen={setIsOpen} token={props.token} messagerecieve={receivedMessage} messagesent={script} setScript={setScript} setSend={setSend} />)}
-        <div className="pauseIcon">
+       
+       
+        <div className={(isOpen) ? `pauseIcon` : `off-pauseIcon`}>
 
           {
             (isListening) ? <LuPause className='pausebtn' /> : <FaPlay className='pausebtn' />
