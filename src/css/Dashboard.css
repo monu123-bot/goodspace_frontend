@@ -1,0 +1,36 @@
+.Dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-image: url('./dashboardBack.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    padding: 2%;
+    box-sizing: border-box;
+
+}
+.lower{
+    display: flex;
+    flex-direction: row;
+}
+.pausebtn{
+    /* font-size: 80px; */
+    font-size: 64px;
+    color: white;
+    padding: 24px;
+    border-radius: 50%;
+    border-radius: 107.683px;
+    background: rgba(0, 132, 255, 0.50);
+    
+}
+.pauseIcon{
+    border: 2px solid gray;
+    border-radius: 10px;
+    background-color: transparent;
+    backdrop-filter: blur(55px);
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:35vh;
+}
