@@ -6,7 +6,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import MicSvg from './svg/micSvg';
 import '../css/Video.css'
 
-function Video({clientMessage,setClientMessage,isOpen,setIsOpen,setScript,isListening,setIsListening,setSend}) {
+function Video({clientMessage, setClientMessage, isOpen, setIsOpen, script, setScript ,isListening, setIsListening, send, setSend, volume ,setVolume}) {
   const audioRef = useRef(null);
   const videoRef = useRef(null);
   
@@ -14,6 +14,7 @@ function Video({clientMessage,setClientMessage,isOpen,setIsOpen,setScript,isList
   const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
   
   
+
   useEffect(() => {
     navigator.mediaDevices.getUserMedia({ video: true, audio: true })
       .then(stream => {
@@ -28,11 +29,12 @@ function Video({clientMessage,setClientMessage,isOpen,setIsOpen,setScript,isList
     return <span>Browser doesn't support speech recognition.</span>;
   }
 
-  const adjustVolume = (event) => {
-    if (audioRef.current) {
-      audioRef.current.volume = event.target.value / 100;
-    }
-  }
+  // const adjustVolume = (event) => {
+  //   // if (audioRef.current) {
+  //   //   audioRef.current.volume = event.target.value / 100;
+  //   // }
+  //   setVolume()
+  // }
 
   const handleListening = () => {
 
@@ -62,16 +64,16 @@ function Video({clientMessage,setClientMessage,isOpen,setIsOpen,setScript,isList
             <IoVideocam className='camera-btn' />
         </div>
         <div className={`mic ${isListening ? 'listening' : ''} ${(isOpen)?'' : 'off-mic'}`} onClick={handleListening}>
-             <MicSvg className='microphone'/>
+             <MicSvg className='microphone' isListening={isListening} />
         </div>
 
         <div className={(isOpen)?'mainVolConatiner' : 'off-mic'}>
             <div className="volContainer">
-              <input type="range" min="0" max="100" onChange={adjustVolume} className='vol-slider'/>
+              <input type="range" min="0" max="100" onChange={(e)=>{setVolume(e.target.value)}} className='vol-slider'/>
               <IoVolumeMedium className='speaker'/>
             </div>
             <div className="volText">
-              <h3>Volume</h3>
+              <h5>Volume</h5>
             </div>
         </div>
        

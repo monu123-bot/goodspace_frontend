@@ -140,10 +140,13 @@
   color: white;
   
 }
-
-
-
-
-
-
-  
+.micClass{
+  display: flex;
+  flex-direction: column;
+}
+.micClassText{
+  text-align: center;
+}
+.green{
+  color: rgb(4, 88, 4);
+}

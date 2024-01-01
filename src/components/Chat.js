@@ -18,7 +18,7 @@ function Chat({isOpen,setIsOpen,token,messagerecieve,messagesent,setScript,setSe
   const fetchPrevChats = async () => {
     try {
       const accessToken = token; // Replace with your actual access token
-      const apiUrl = 'http://localhost:5000/api/chat/fetch'; // Replace with your API endpoint
+      const apiUrl = 'https://goodspace-backend.onrender.com/api/chat/fetch'; // Replace with your API endpoint
   
       
   
@@ -83,7 +83,7 @@ function Chat({isOpen,setIsOpen,token,messagerecieve,messagesent,setScript,setSe
 
   return (
     <div className={(isOpen)?'chatSection ' : 'off-chatSection'}>
-        <div className="chat">
+        <div className={(isOpen)?'chat ' : 'off-chat'}>
 
 
           <ScrollToBottom className="upper">
@@ -119,10 +119,20 @@ function Chat({isOpen,setIsOpen,token,messagerecieve,messagesent,setScript,setSe
             
           </ScrollToBottom>
           
+          <div className='chatIconDiv' >
           {(isOpen) &&
           <div className='chatIcon' onClick={handleClick}>
               <BsChatLeftFill className="chatBtn" />
+              
+
           </div>}
+          {
+            (isOpen) &&  (<div className='chatIconText' ><b>Start Chat</b></div>
+            )
+          }
+          </div>
+         
+          
         </div> 
 
         {(!isOpen) &&

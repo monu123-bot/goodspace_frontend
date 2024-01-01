@@ -26,6 +26,7 @@
     padding: 1rem;
     background-color: transparent;
     backdrop-filter: blur(55px);
+    margin: 0rem 2rem;
 }
 .lowerDiv{
     display: flex;
@@ -111,32 +112,46 @@
     width: 30px;
     height: 30px;
 }
-.chat{
+.off-chat{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 1%;
     flex-wrap: nowrap;
-    width: 100%;
+    width: 80vw;
     height: 90%;
     
 }
+.chat{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    flex-wrap: nowrap;
+    width: 35vw;
+    height:90%;
+
+}
+
 .chatBtn{
     font-size: 30px;
     color: white;
     
 }
 .chatIcon{
+  
+
     border: 2px solid #189BFF;
-    padding: 28px;
-    background-color: #189BFF;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    width: 10%;
+  padding: 28px;
+  background-color: #189BFF;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right: 1rem;
     
 }
 .upper{
@@ -154,7 +169,19 @@
     border-radius:20px ;
     min-width: 20%;
     text-align: center;
+    margin: 10px;
 
 }
 
 
+.chatIconDiv{
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   justify-content: center;
+}
+.chatIconText{
+  text-align: center;
+  margin: 10px;
+  justify-content: center;
+}

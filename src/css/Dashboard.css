@@ -57,3 +57,36 @@
     top: 28px;
 
 }
+.wavy-line {
+    width: 150px;
+    height: 10px;
+    overflow: hidden;
+    margin: 0 auto 0 auto;
+  }
+  .wavy-line:before {
+    content: attr(data-text);
+    position: relative;
+    top: -35px;
+    color: rgba(0,0,0,0);
+    width: calc(100% + 27px);
+    font-size: 2em;
+    text-decoration-style: wavy;
+    text-decoration-color: #25173A;
+    text-decoration-line: underline;
+    animation: animate .9s linear infinite;
+    -webkit-animation: animate .9s linear infinite;
+  }
+  
+  @keyframes animate {
+    0% { left: -0px; }
+    100% { left: -30px;}
+  }
+  @-webkit-keyframes animate {
+    0% { left: -0px; }
+    100% { left: -30px;}
+  }
+  
+  .wavy-line-green:before { text-decoration-color: #56AE5F; }
+  .wavy-line-black:before { text-decoration-color: black; }
+ 
+  
