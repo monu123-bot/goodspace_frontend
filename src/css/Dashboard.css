@@ -42,6 +42,11 @@
     align-items: center;
     height:35vh;
     
+    
+}
+.pIcon{
+  display: flex;
+  flex-direction: column;
 }
 .off-pauseIcon{
     border: 2px solid gray;
@@ -58,7 +63,7 @@
 
 }
 .wavy-line {
-    width: 150px;
+    width: 80%;
     height: 10px;
     overflow: hidden;
     margin: 0 auto 0 auto;

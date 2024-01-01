@@ -122,12 +122,13 @@ function Chat({isOpen,setIsOpen,token,messagerecieve,messagesent,setScript,setSe
           <div className='chatIconDiv' >
           {(isOpen) &&
           <div className='chatIcon' onClick={handleClick}>
-              <BsChatLeftFill className="chatBtn" />
+              {/* <BsChatLeftFill className="chatBtn" /> */}
+              <ChatBtnSvg/>
               
 
           </div>}
           {
-            (isOpen) &&  (<div className='chatIconText' ><b>Start Chat</b></div>
+            (isOpen) &&  (<div className='chatIconText' ><b>Chat</b></div>
             )
           }
           </div>

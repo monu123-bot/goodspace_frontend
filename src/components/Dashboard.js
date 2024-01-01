@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react'
-import { useSpeechSynthesis } from 'react-speech-kit';
+
 import Video from './Video'
 import Chat from './Chat'
 import Navbar from './Navbar'
-import { FaPause } from "react-icons/fa6";
+
 import { FaPlay } from "react-icons/fa";
 import { LuPause } from "react-icons/lu";
 import { useState } from 'react';
 
 import io from 'socket.io-client';
 import '../css/Dashboard.css';
+import PauseSvg from './svg/PauseSvg';
 
 const synth = window.speechSynthesis;
 let utterance = new SpeechSynthesisUtterance();
@@ -29,7 +30,6 @@ function Dashboard(props) {
   const [isSpeaking, setIsSpeaking] = useState(false);
 
 
-  const { speak, voices } = useSpeechSynthesis();
 
   useEffect(() => {
     const newSocket = io('https://goodspace-backend.onrender.com/',
@@ -220,7 +220,7 @@ function Dashboard(props) {
           (<Chat isOpen={isOpen} setIsOpen={setIsOpen} token={props.token} messagerecieve={receivedMessage} messagesent={script} setScript={setScript} setSend={setSend} />)}
 
 
-        <div className={(isOpen) ? `pauseIcon` : `off-pauseIcon`}>
+        <div className={  `${(isOpen) ? 'pauseIcon' : 'off-pauseIcon'} pIcon `}>
           <div onClick={   ()=>{
             
             if(isSpeaking){
@@ -236,11 +236,13 @@ function Dashboard(props) {
           
           }} >
             {
-              (isSpeaking) ? <LuPause className='pausebtn' /> : <FaPlay className='pausebtn' />
+              (isSpeaking) ? <PauseSvg/>  : <FaPlay className='pausebtn' />
 
 
             }
           </div>
+
+          {(isSpeaking) ? <p style={{color:'white'}} ><b>Pause</b></p> : <p style={{color:'white'}}><b>Resume</b></p>}
 
 
 

@@ -5,13 +5,14 @@ import { IoVideocam } from "react-icons/io5";
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import MicSvg from './svg/micSvg';
 import '../css/Video.css'
+import VideoSvg from './svg/VideoSvg';
 
 function Video({clientMessage, setClientMessage, isOpen, setIsOpen, script, setScript ,isListening, setIsListening, send, setSend, volume ,setVolume}) {
-  const audioRef = useRef(null);
+  
   const videoRef = useRef(null);
   
   const [speechText,setSpeechText]=useState([]);
-  const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
+  const { transcript, browserSupportsSpeechRecognition } = useSpeechRecognition();
   
   
 
@@ -29,12 +30,7 @@ function Video({clientMessage, setClientMessage, isOpen, setIsOpen, script, setS
     return <span>Browser doesn't support speech recognition.</span>;
   }
 
-  // const adjustVolume = (event) => {
-  //   // if (audioRef.current) {
-  //   //   audioRef.current.volume = event.target.value / 100;
-  //   // }
-  //   setVolume()
-  // }
+
 
   const handleListening = () => {
 
@@ -60,8 +56,16 @@ function Video({clientMessage, setClientMessage, isOpen, setIsOpen, script, setS
         <div className={(isOpen)?'video ' : 'off-video'}>
             <video ref={videoRef} autoPlay muted />
         </div>
+        <div className='cameraIcon' >
         <div className={(isOpen)?'off-mic' : 'camera-icon'} onClick={handleClick}>
-            <IoVideocam className='camera-btn' />
+            {/* <IoVideocam className='camera-btn' /> */}
+            <VideoSvg/>
+            
+        </div>
+        {
+          (!isOpen) && ( <p style={{color:'white'}} ><b>Video</b></p>)
+        }
+       
         </div>
         <div className={`mic ${isListening ? 'listening' : ''} ${(isOpen)?'' : 'off-mic'}`} onClick={handleListening}>
              <MicSvg className='microphone' isListening={isListening} />
