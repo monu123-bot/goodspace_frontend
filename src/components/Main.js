@@ -35,7 +35,13 @@ function Main(props) {
 
 
          <div className='Auth'  >
-           <GoogleOAuthProvider clientId="573232329729-b7cl896krcqalql9nvqkfg0cl5ekpn2u.apps.googleusercontent.com">
+           <GoogleOAuthProvider
+           
+          //  clientId="573232329729-b7cl896krcqalql9nvqkfg0cl5ekpn2u.apps.googleusercontent.com"
+                    clientId="899213514258-sfpe6is801832nnk32r82bj0fm5b8kbj.apps.googleusercontent.com"
+           >
+
+           
       
       <GoogleLogin
     onSuccess={credentialResponse => {
