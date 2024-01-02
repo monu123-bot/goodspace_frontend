@@ -6,7 +6,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import MicSvg from './svg/micSvg';
 import '../css/Video.css'
 import VideoSvg from './svg/VideoSvg';
-
+const synth = window.speechSynthesis;
 function Video({clientMessage, setClientMessage, isOpen, setIsOpen, script, setScript ,isListening, setIsListening, send, setSend, volume ,setVolume}) {
   
   const videoRef = useRef(null);
@@ -34,7 +34,7 @@ function Video({clientMessage, setClientMessage, isOpen, setIsOpen, script, setS
 
   const handleListening = () => {
 
-
+    synth.cancel()
     if (isListening) {
       SpeechRecognition.stopListening();
       setClientMessage([...clientMessage,transcript]);

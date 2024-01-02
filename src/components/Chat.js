@@ -4,7 +4,7 @@ import { GrAttachment } from "react-icons/gr";
 import { BsChatLeftFill } from "react-icons/bs";
 import ChatBtnSvg from './svg/ChatBtnSvg';
 import axios from 'axios';
-import Speech from 'react-speech';
+
 import ScrollToBottom from 'react-scroll-to-bottom';
 import '../css/Chat.css'
 function Chat({isOpen,setIsOpen,token,messagerecieve,messagesent,setScript,setSend}) {

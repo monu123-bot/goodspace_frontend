@@ -10,9 +10,14 @@
     padding: 20px;
     width: 300px;
     margin: 0 auto;
+
   }
   
   .Auth h1 {
+    color: white;
+    margin-bottom: 20px;
+  }
+  .Auth h3 {
     color: white;
     margin-bottom: 20px;
   }

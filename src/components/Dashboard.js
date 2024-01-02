@@ -30,7 +30,7 @@ function Dashboard(props) {
   const [isSpeaking, setIsSpeaking] = useState(false);
 
 
-
+  
   useEffect(() => {
     const newSocket = io('https://goodspace-backend.onrender.com/',
       {
@@ -61,16 +61,16 @@ function Dashboard(props) {
       
       utterance = new SpeechSynthesisUtterance(text);
       
-      console.log(utterance)
+      
+      // console.log(utterance)
       synth.speak(utterance);
     }
 
 
-
     // const selectedVoice = voices.find(voice => voice.lang === 'en-US');
     // speak({ text: message,voice:selectedVoice,rate:1,pitch:0.1 })
-
   }
+
 
  
 
@@ -97,6 +97,7 @@ function Dashboard(props) {
         if (outerDiv) {
           if (toString(token1) == toString(tokenPart)) {
             setReceivedMessage(resp);
+            
             onSpeak(resp)
 
             let newMessageDiv = document.createElement('div');
@@ -145,7 +146,8 @@ function Dashboard(props) {
     }
 
   }, [isListening])
-
+  
+  
 
 
   const sendMessage = () => {
